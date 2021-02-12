@@ -14,7 +14,7 @@ class Inventario {
 		~Inventario();
 		Inventario(vector<Producto*>);
 		void agregarProducto(int, string , string , int , float);
-		void modificarProducto();
+		void modificarProducto(int, int);
 		void eliminarProducto(int);
 		void busquedaNombre();
 		void estadisticaGeneral();
