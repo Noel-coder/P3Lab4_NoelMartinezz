@@ -78,6 +78,7 @@ void Inventario::eliminarProducto(int id) {
 	}
 }
 void Inventario::estadisticaGeneral() {
+	int contUnidades=0,prodUnicos=0,totalInventario=0;
 	for(int i = 0; i < productos.size(); i++) {
 		Producto *product = productos[i];
 		cout <<"------" << "Producto #" << i <<"------"<<endl;
@@ -87,6 +88,18 @@ void Inventario::estadisticaGeneral() {
 		cout << "Cantidad de Unidades: " << product->getCantidadUnidades() << endl;
 		cout << "Precio: " << product->getPrecio() << endl;
 	}
+	for(int i=0; i < productos.size(); i++){
+		contUnidades+=productos.at(i)->getCantidadUnidades();
+	}
+	cout << "El total de unidades: "<<"["<<contUnidades<<"]"<<endl;
+	cout << "Productos Unicos: "<<"["<<productos.size()<<"]"<<endl;
+	int reserva=0;
+	for(int i=0; i < productos.size();i++){
+		reserva=0;
+		reserva = productos.at(i)->getCantidadUnidades()*productos.at(i)->getPrecio();
+		totalInventario+= reserva;
+	}
+	cout << "Precio total del Inventario: "<<"["<<totalInventario<<"]"<<endl;
 }
 
 
